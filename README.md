@@ -1,14 +1,16 @@
-# lerna-alias
+# workspace-alias
 
-Simple package for getting alias object for packages managed by lerna, so other tools (such as [webpack](https://webpack.js.org/), [rollup](https://rollupjs.org/), [jest](http://facebook.github.io/jest/) and possibly more) can consume your packages directly from the source files, instead of the built and prepared distribution files.
+Forked from [lerna-alias](https://github.com/Andarist/lerna-alias).
 
-It just eases development and setting up scripts depending on other lerna packages.
+Simple package for getting alias object for packages managed by npm or yarn workspaces, so other tools (such as [webpack](https://webpack.js.org/), [rollup](https://rollupjs.org/), [jest](http://facebook.github.io/jest/) and possibly more) can consume your packages directly from the source files, instead of the built and prepared distribution files.
+
+It just eases development and setting up scripts depending on other monorepo packages.
 
 ## API
 
 ```js
-lernaAliases({
-  // from which directory lerna monorepo should be searched for
+workspaceAliases({
+  // from which directory monorepo should be searched for
   directory: string = process.cwd(),
   // optional array of `mainFields` that should be used to resolv package's entry point
   // similar to the https://webpack.js.org/configuration/resolve/#resolve-mainfields
@@ -37,13 +39,13 @@ type Aliases = {
 ## with webpack
 
 ```js
-const { webpack: lernaAliases } = require('lerna-alias')
+const { webpack: workspaceAliases } = require('workspace-alias')
 
 module.exports = {
   // ...
   resolve: {
     // ...
-    alias: lernaAliases(),
+    alias: workspaceAliases(),
   },
 }
 ```
@@ -51,14 +53,14 @@ module.exports = {
 ## with Rollup
 
 ```js
-const { rollup: lernaAliases } = require('lerna-alias')
-const lernaAliases = require('lerna-alias')
+const { rollup: workspaceAliases } = require('workspace-alias')
+const workspaceAliases = require('workspace-alias')
 
 module.exports = {
   // ...
   plugins: [
     // ...
-    alias(lernaAliases()),
+    alias(workspaceAliases()),
   ],
 }
 ```
@@ -66,21 +68,21 @@ module.exports = {
 ## with Jest
 
 ```js
-const { jest: lernaAliases } = require('lerna-alias')
+const { jest: workspaceAliases } = require('workspace-alias')
 
 module.exports = {
   // ...
-  moduleNameMapper: lernaAliases(),
+  moduleNameMapper: workspaceAliases(),
 }
 ```
 
 ## using `mainFields` option
 
 ```js
-const { jest: lernaAliases } = require('lerna-alias')
+const { jest: workspaceAliases } = require('workspace-alias')
 
 module.exports = {
   // ...
-  moduleNameMapper: lernaAliases({ mainFields: ['main'] }),
+  moduleNameMapper: workspaceAliases({ mainFields: ['main'] }),
 }
 ```

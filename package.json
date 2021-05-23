@@ -1,7 +1,7 @@
 {
-  "name": "lerna-alias",
-  "version": "3.0.3-0",
-  "description": "Get aliases for your lerna packages for the other tools",
+  "name": "workspace-alias",
+  "version": "0.1.0",
+  "description": "Get aliases for your workspace packages for the other tools",
   "main": "lib",
   "files": [
     "lib"
@@ -17,28 +17,31 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Andarist/lerna-alias.git"
+    "url": "git+https://github.com/penx/workspace-alias.git"
   },
   "keywords": [
-    "lerna",
+    "npm",
+    "yarn",
+    "workspace",
+    "workspaces",
     "monorepo",
     "alias",
     "webpack",
     "rollup",
     "jest"
   ],
-  "author": "Mateusz Burzyński <mateuszburzynski@gmail.com> (https://github.com/Andarist)",
+  "author": "Alasdair McLeay (https://github.com/penx)",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/Andarist/lerna-alias/issues"
+    "url": "https://github.com/penx/workspace-alias/issues"
   },
-  "homepage": "https://github.com/Andarist/lerna-alias#readme",
+  "homepage": "https://github.com/penx/workspace-alias#readme",
   "devDependencies": {
-    "husky": "^0.14.3",
-    "lint-staged": "^4.3.0",
-    "prettier": "^1.9.2"
+    "husky": "^6.0.0",
+    "lint-staged": "^11.0.0",
+    "prettier": "^2.3.0"
   },
   "dependencies": {
-    "get-lerna-packages": "^0.1.1"
+    "glob": "^7.1.7"
   }
 }
